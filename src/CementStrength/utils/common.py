@@ -12,8 +12,11 @@ from CementStrength import logger
 
 def create_directories(path: Path):
     dir = os.path.join(path)
-    os.makedirs(dir)
+    os.makedirs(dir,exist_ok=True)
     logger.info("directory created")
+
+
+
 def read_yaml(path_to_yaml: Path):
     with open(path_to_yaml) as yaml_file:
         content = Box(yaml.safe_load(yaml_file))

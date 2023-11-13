@@ -1,5 +1,5 @@
 from CementStrength.utils import read_yaml,create_directories
-from CementStrength.entity import DataIngestionConfig,DataValidationConfig
+from CementStrength.entity import DataIngestionConfig,DataValidationConfig,DbOperationsConfig
 from CementStrength.constants import *
 
 
@@ -36,3 +36,16 @@ class ConfigurationManager:
                         
                   )
             return data_validation_config
+      
+      def get_db_operations_config(self) -> DbOperationsConfig:
+            db_operations_config = DbOperationsConfig(
+                  source_dir = self.config_file.db_operations.source_dir,
+                  db_dir= self.config_file.db_operations.db_dir,
+                  db_name= self.config_file.db_operations.db_name,
+                  training_dir = self.config_file.db_operations.training_dir,
+                  training_file= self.config_file.db_operations.training_file   
+
+                
+                        
+                  )
+            return db_operations_config

@@ -10,4 +10,11 @@ data_ingestion:
 data_validation:
   source_dir: artifacts/data_ingestion/Training_Batch_Files
   good_dir: artifacts/data_validation/good
-  bad_dir: artifacts/data_validation/bad  
+  bad_dir: artifacts/data_validation/bad 
+
+db_operations:
+  source_dir: artifacts/data_validation/good
+  db_dir: db_operations/database
+  db_name: db_operations/database/cement.db
+  training_dir: db_operations/training
+  training_file: db_operations/training/input.csv

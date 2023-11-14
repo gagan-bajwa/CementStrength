@@ -18,3 +18,8 @@ db_operations:
   db_name: db_operations/database/cement.db
   training_dir: db_operations/training
   training_file: db_operations/training/input.csv
+
+training:
+  source_dir: db_operations/training/input.csv
+  training_dir: Training
+  local_training_file: Training/training.csv

@@ -22,3 +22,10 @@ class DbOperationsConfig:
     db_name: Path
     training_dir: Path
     training_file: Path
+
+@dataclass(frozen=True)
+class TrainingConfig:
+    source_dir: Path
+    training_dir: Path
+    local_training_file: Path
+    

@@ -48,10 +48,23 @@ class ConfigurationManager:
             return db_operations_config
 
       def get_training_config(self) -> TrainingConfig:
+            create_directories(self.config_file.training.preprocesssed_data_dir)
+            create_directories(self.config_file.training.Models_dir)
+            create_directories(self.config_file.training.images)
+
+
             training_config = TrainingConfig(
                   source_dir= self.config_file.training.source_dir,
                   training_dir = self.config_file.training.training_dir,
-                  local_training_file= self.config_file.training.local_training_file
+                  local_training_file= self.config_file.training.local_training_file,
+                  preprocessed_data_dir= self.config_file.training.preprocessed_data_dir,
+                  preprocessed_data= self.config_file.training.preprocessed_data,
+                  Models_dir= self.config_file.training.Models_dir,
+                  clustering_model= self.config_file.training.clustering_model,
+                  model_cluster0= self.config_file.training.model_cluster0,
+                  model_cluster1= self.config_file.training.model_cluster1,
+                  model_cluster2= self.config_file.training.model_cluster2,
+                  images= self.config_file.training.images
                            
                   )
             return training_config

@@ -26,7 +26,7 @@ def read_yaml(path_to_yaml: Path):
         return (content)
     
 def save_model(model, path: Path,filename):
-    with open(path +'/' + filename+'.sav',
+    with open(path +'/' + str(filename) +'.sav',
                       'wb') as f:
         pickle.dump(model,f)
     logger.info("model saved")

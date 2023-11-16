@@ -26,8 +26,4 @@ training:
   preprocessed_data_dir: Training/preprocessed
   preprocessed_data: Training/preprocessed_data.csv
   Models_dir: Training/models
-  clustering_model: Training/models/clustering_model.joblib
-  model_cluster0: Training/models/model_cluster0.joblib
-  model_cluster1: Training/models/model_cluster1.joblib
-  model_cluster2: Training/model/model_cluster2.joblib
   images: Training/images

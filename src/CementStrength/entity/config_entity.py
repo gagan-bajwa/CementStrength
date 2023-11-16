@@ -23,6 +23,7 @@ class DbOperationsConfig:
     training_dir: Path
     training_file: Path
 
+
 @dataclass(frozen=True)
 class TrainingConfig:
     source_dir: Path
@@ -31,8 +32,4 @@ class TrainingConfig:
     preprocessed_data_dir: Path
     preprocessed_data: Path
     Models_dir: Path
-    clustering_model: Path
-    model_cluster0: Path
-    model_cluster1: Path
-    model_cluster2: Path
     images: Path

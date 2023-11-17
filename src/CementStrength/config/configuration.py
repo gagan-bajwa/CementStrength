@@ -1,5 +1,5 @@
 from CementStrength.utils import read_yaml,create_directories
-from CementStrength.entity import DataIngestionConfig,DataValidationConfig,DbOperationsConfig,TrainingConfig
+from CementStrength.entity import DataIngestionConfig,DataValidationConfig,DbOperationsConfig,TrainingConfig,EvaluationConfig
 from CementStrength.constants import *
 
 
@@ -58,7 +58,18 @@ class ConfigurationManager:
                   preprocessed_data_dir = self.config_file.training.preprocessed_data_dir,
                   preprocessed_data= self.config_file.training.preprocessed_data,
                   Models_dir= self.config_file.training.Models_dir,
-                  images= self.config_file.training.images
+                  images= self.config_file.training.images,
+                  test_data= self.config_file.training.test_data
                            
                   )
             return training_config
+      
+      def get_evaluation_config(self) -> EvaluationConfig:
+                       
+            evaluation_config = EvaluationConfig(
+            test_data= self.config_file.evaluation.test_data
+                  #scores= self.config_file.scores
+                  
+                           
+                  )
+            return evaluation_config

@@ -23,6 +23,7 @@ class Training:
         create_directories(self.config.preprocessed_data_dir)
         create_directories(self.config.Models_dir)
         create_directories(self.config.images)
+        create_directories(self.config.test_data)
 
     def copy_training_file(self):
         create_directories(self.config.training_dir)
@@ -63,11 +64,13 @@ class Training:
         df = pd.read_csv(self.config.preprocessed_data)
         X = df.drop(columns='Concrete_compressive _strength')
         y = df['Concrete_compressive _strength']
-        #X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+        X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+        X_test.to_csv(os.path.join(self.config.test_data,'test_data_features.csv'),index=False)
+        y_test.to_csv(os.path.join(self.config.test_data,'test_data_labels.csv'),index=False)
         #X_valid,X_test,y_valid,y_test = train_test_split(X_test,y_test,test_size=0.5,random_state=42)
 
         scaler = StandardScaler()
-        X_scaled = pd.DataFrame(scaler.fit_transform(X),columns=X.columns,index=X.index)
+        X_scaled = pd.DataFrame(scaler.fit_transform(X_train),columns=X_train.columns,index=X_train.index)
         
         
         inertia = []
@@ -93,7 +96,7 @@ class Training:
         #clusters_test = cluster_model.predict(X_test_scaled.values)
         X_scaled['cluster'] = pd.Series(clusters_train, index=X_scaled.index) #cluster column added
         dfs=[X_scaled[X_scaled['cluster']==i] for i in range(no_of_clusters)]
-        y_cluster = [y.loc[dfs[i].index] for i in range(len(dfs))]
+        y_cluster = [y_train.loc[dfs[i].index] for i in range(len(dfs))]
         new_dfs = []
         for i in range(len(dfs)):
             dfs[i]['Concrete Compressive strength'] = y_cluster[i] 
@@ -110,12 +113,13 @@ class Training:
             df = df.drop(columns='cluster')
             X = df.drop(columns='Concrete Compressive strength')
             y = df['Concrete Compressive strength']
-            X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+            #X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+            
             rm = RandomForestRegressor(random_state=42)
             params = { 'n_estimators': [50,100,150],'criterion':['squared_error','absolute_error','friedman_mse','poisson']}
             grid = GridSearchCV(estimator=rm,param_grid=params)
-            grid.fit(X_train, y_train)
-            random_model = RandomForestRegressor(criterion=grid.best_params_['criterion'],n_estimators=grid.best_params_['n_estimators']).fit(X_train, y_train)
+            grid.fit(X, y)
+            random_model = RandomForestRegressor(criterion=grid.best_params_['criterion'],n_estimators=grid.best_params_['n_estimators']).fit(X, y)
             save_model(random_model,self.config.Models_dir,'random_model_cluster'+str(i))
             models.append(random_model)
         logger.info('models saved for every cluster')

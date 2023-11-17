@@ -33,3 +33,8 @@ class TrainingConfig:
     preprocessed_data: Path
     Models_dir: Path
     images: Path
+    test_data: Path
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    test_data: Path

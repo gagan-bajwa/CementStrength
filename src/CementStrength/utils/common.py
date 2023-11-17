@@ -3,6 +3,7 @@ from box import Box
 import yaml
 import os
 import pickle
+import json
 
 from CementStrength import logger
 
@@ -36,6 +37,11 @@ def load_model(filename,path:Path):
                       'rb') as f:
         return pickle.load(f)
     
+def save_json(path: Path, data: dict):
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+
+    logger.info(f"json file saved at: {path}")
     
 
           

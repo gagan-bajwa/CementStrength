@@ -27,3 +27,8 @@ training:
   preprocessed_data: Training/preprocessed_data.csv
   Models_dir: Training/models
   images: Training/images
+  test_data : Test/data
+
+evaluation:
+  test_data : Test/data
+  

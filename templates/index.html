@@ -3,36 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add some basic styling to position your name at the bottom right */
+        body {
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+        }
+    </style>
+   
     <title>Concrete Compressive Strength Prediction</title>
 </head>
 <body>
     <h1>Concrete Compressive Strength Prediction</h1>
     <form action="/predict" method="post">
         <label for="cement">Cement Component 1:</label>
+        <br>
         <input type="number" name="cement" step="0.000001" required>
-        
+        <br>
+
         <label for="blast_furnace_slag">Blast Furnace Slag Component 2:</label>
+        <br>
         <input type="number" name="blast_furnace_slag" step="0.000001" required>
-        
+        <br>
+
         <label for="fly_ash">Fly Ash Component 3:</label>
+        <br>
         <input type="number" name="fly_ash" step="0.000001" required>
-        
+        <br>
+
         <label for="water">Water Component 4:</label>
+        <br>
         <input type="number" name="water" step="0.000001" required>
-        
+        <br>
+
         <label for="superplasticizer">Superplasticizer Component 5:</label>
+        <br>
         <input type="number" name="superplasticizer" step="0.000001" required>
-        
+        <br>
+
         <label for="coarse_aggregate">Coarse Aggregate Component 6:</label>
+        <br>
         <input type="number" name="coarse_aggregate" step="0.000001" required>
-        
+        <br>
+
         <label for="fine_aggregate">Fine Aggregate Component 7:</label>
+        <br>
         <input type="number" name="fine_aggregate" step="0.000001" required>
-        
-        <label for="age">Age (days):</label>
-        <input type="number" name="age" step="0.000001" required>
-        
+        <br>
+
+        <label for="age">Age (in days):</label>
+        <br>
+        <input type="number" name="age" step="1" required>
+        <br>
+
         <button type="submit">Predict</button>
     </form>
+    <div class="footer">
+        Made by :- Gagandeep Singh Bajwa
+    </div>
+
 </body>
 </html>

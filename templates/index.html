@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Compressive Strength Prediction</title>
+</head>
+<body>
+    <h1>Concrete Compressive Strength Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="cement">Cement Component 1:</label>
+        <input type="number" name="cement" step="0.000001" required>
+        
+        <label for="blast_furnace_slag">Blast Furnace Slag Component 2:</label>
+        <input type="number" name="blast_furnace_slag" step="0.000001" required>
+        
+        <label for="fly_ash">Fly Ash Component 3:</label>
+        <input type="number" name="fly_ash" step="0.000001" required>
+        
+        <label for="water">Water Component 4:</label>
+        <input type="number" name="water" step="0.000001" required>
+        
+        <label for="superplasticizer">Superplasticizer Component 5:</label>
+        <input type="number" name="superplasticizer" step="0.000001" required>
+        
+        <label for="coarse_aggregate">Coarse Aggregate Component 6:</label>
+        <input type="number" name="coarse_aggregate" step="0.000001" required>
+        
+        <label for="fine_aggregate">Fine Aggregate Component 7:</label>
+        <input type="number" name="fine_aggregate" step="0.000001" required>
+        
+        <label for="age">Age (days):</label>
+        <input type="number" name="age" step="0.000001" required>
+        
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

@@ -85,9 +85,9 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/cementstrength:latest
          
-      - name: Stop and remove container if running
-        run: |
-         docker ps -q --filter "name=cementstrength" | grep -q . && docker stop cementstrength && docker rm -fv cementstrength
+      # - name: Stop and remove container if running
+        #run: |
+         #docker ps -q --filter "name=cementstrength" | grep -q . && docker stop cementstrength && docker rm -fv cementstrength
        
       - name: Run Docker Image to serve users
         run: |

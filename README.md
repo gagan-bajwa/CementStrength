@@ -33,7 +33,7 @@ conda create -n cnncls python=3.7 -y
 conda activate cnncls
 STEP 02- install the requirements
 pip install -r requirements.txt
-# Finally run the following command
+## Finally run the following command
 python app.py
 Now,
 
@@ -41,19 +41,19 @@ open up you local host and port
 Author: Gagandeep Singh
 Data Scientist
 Email: gsb141991@gmail.com
-AWS-CICD-Deployment-with-Github-Actions
+# AWS-CICD-Deployment-with-Github-Actions
 
 1. Login to AWS console.
 2. Create IAM user for deployment
 
-# with specific access
+## with specific access
 
 1. EC2 access : It is virtual machine
 
 2. ECR: Elastic Container registry to save your docker image in aws
 
 
-# Description: About the deployment
+## Description: About the deployment
 
 1. Build docker image of the source code
 
@@ -65,7 +65,7 @@ AWS-CICD-Deployment-with-Github-Actions
 
 5. Lauch your docker image in EC2
 
-# Policy:
+ Policy:
 
 1. AmazonEC2ContainerRegistryFullAccess
 
@@ -75,34 +75,34 @@ AWS-CICD-Deployment-with-Github-Actions
 4. Create EC2 machine (Ubuntu)
 5. Open EC2 and Install docker in EC2 Machine:
 
-#optinal
+        # optional
 
-sudo apt-get update -y
+        sudo apt-get update -y
 
-sudo apt-get upgrade
+        sudo apt-get upgrade
 
-#required
+        # required
 
-curl -fsSL https://get.docker.com -o get-docker.sh
+        curl -fsSL https://get.docker.com -o get-docker.sh
 
-sudo sh get-docker.sh
+        sudo sh get-docker.sh
 
-sudo usermod -aG docker ubuntu
+        sudo usermod -aG docker ubuntu
 
-newgrp docker
+        newgrp docker
 
 6. Configure EC2 as self-hosted runner:
 setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
 7. Setup github secrets:
 
-AWS_ACCESS_KEY_ID=
+    AWS_ACCESS_KEY_ID=
 
-AWS_SECRET_ACCESS_KEY=
+    AWS_SECRET_ACCESS_KEY=
 
-AWS_REGION = us-east-1
+    AWS_REGION = us-east-1
 
-AWS_ECR_LOGIN_URI = demo>>   025981777085.dkr.ecr.us-east-2.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>   025981777085.dkr.ecr.us-east-2.amazonaws.com
 
-ECR_REPOSITORY_NAME = cementstrength
+    ECR_REPOSITORY_NAME = cementstrength
 

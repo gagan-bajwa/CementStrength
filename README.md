@@ -9,9 +9,9 @@
 7. Update the pipeline
 8. Update the main.py
 
-# Problem Statment
-A  construction needs to predict concrete compressive strength in order to to reduce cost and attain required compressive strength. 
-Therefore, in order to attain this task, I have built a regression model to predict concrete comressive strength when the features are feed to the model.
+# Problem Statement
+A construction company needs to predict concrete compressive strength in order to reduce cost and attain the required compressive strength. 
+Therefore, in order to attain this task, I have built a regression model to predict concrete compressive strength when the features are fed to the model.
 
 
 # Output:
@@ -31,9 +31,9 @@ https://github.com/gagan-bajwa/CementStrength.git
 STEP 01- Create a conda environment after opening the repository
 conda create -n cement python=3.8 -y
 conda activate cement
-STEP 02- install the requirements
+STEP 02- Install the requirements
 pip install -r requirements.txt
-## Finally run the following command
+## Finally, run the following command:
 python app.py
 Now,
 

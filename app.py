@@ -18,6 +18,12 @@ cluster3_model = load_model('random_model_cluster3',os.path.join('Training','mod
 def home():
     return render_template('index.html')
 
+@app.route("/train", methods=['GET','POST'])
+
+def trainRoute():
+    os.system("python main.py")
+    return "Training done successfully!"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':

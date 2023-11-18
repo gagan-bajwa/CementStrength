@@ -8,7 +8,7 @@ logging.basicConfig(
         level = logging.INFO,  
        format = '%(levelname)s:%(asctime)s:%(message)s')
 projectname = 'CementStrength'
-files = ['.github/workflows.gitkeep',
+files = ['.github/workflows/.gitkeep',
         
          f'src/{projectname}/__init__.py',
          f'src/{projectname}/components/__init__.py',
